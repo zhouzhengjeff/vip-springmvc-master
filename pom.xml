@@ -15,6 +15,9 @@
         <module>springmvc-rest</module>
         <module>springmvc-return</module>
         <module>springmvc-bind</module>
+        <module>springmvc-upload</module>
+        <module>springmvc-exception</module>
+        <module>springmvc-interceptor</module>
     </modules>
 
     <properties>
