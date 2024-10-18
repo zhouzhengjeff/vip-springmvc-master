@@ -24,15 +24,36 @@
         <property name="maxUploadSizePerFile" value="2097152"/>
     </bean>
 
-
-
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
-            <bean class="com.hnguigu.springmvc.interceptor.DemoInterceptor"/>
+
+            <!--
+                排除掉/users/login这个地址的拦截（/users/login这个请求是不会执行下面的拦截器）
+            -->
+            <mvc:exclude-mapping path="/users/login"/>
+            <bean class="com.hnguigu.springmvc.interceptor.AuthenticateInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
 
+
+    <!--<mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+
+            <bean class="com.hnguigu.springmvc.interceptor.DemoInterceptor1"/>
+        </mvc:interceptor>
+
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.hnguigu.springmvc.interceptor.DemoInterceptor2"/>
+        </mvc:interceptor>
+
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.hnguigu.springmvc.interceptor.DemoInterceptor3"/>
+        </mvc:interceptor>
+    </mvc:interceptors>-->
 
 
 </beans>

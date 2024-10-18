@@ -18,6 +18,8 @@
         <module>springmvc-upload</module>
         <module>springmvc-exception</module>
         <module>springmvc-interceptor</module>
+        <module>springmvc-static</module>
+        <module>springmvc-resutful-improve</module>
     </modules>
 
     <properties>

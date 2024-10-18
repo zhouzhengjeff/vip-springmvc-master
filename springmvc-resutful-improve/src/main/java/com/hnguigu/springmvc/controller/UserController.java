@@ -24,10 +24,10 @@ public class UserController {
      * @param model 用来设置属性 Model 对象可以直接使用（Spring已经将它实例化而且将它纳入容器中成为Bean）
      * @return 逻辑视图名称
      */
-    @RequestMapping(value = "/findAll", method = {RequestMethod.GET})
+    @GetMapping(value = "/findAll")
     public String findAll(Model model) {
-
         System.out.println("进来了");
+
 
         // 调用业务逻辑
         List<User> userList = this.userService.findAll();
@@ -39,7 +39,7 @@ public class UserController {
         return "user/list";
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @PostMapping(value = "/add")
     public String add(User user) {
         // 调用业务逻辑
 //        user.setBirthday(new Date());
@@ -49,12 +49,11 @@ public class UserController {
         return "redirect:/users/findAll";
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
+    @GetMapping(value = "/add")
     public String add() {
         return "user/add";
     }
 
-    //    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     @DeleteMapping(value = "/delete/{id}")
     public String delete(@PathVariable Long id) {
         User user = this.userService.findUserById(id);
