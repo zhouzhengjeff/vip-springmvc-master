@@ -10,15 +10,21 @@
 
     <mvc:annotation-driven/>
 
+    <!-- 这行代码的作用是启用默认的Servlet处理器，用于处理静态资源请求 -->
     <mvc:default-servlet-handler/>
 
     <!--
         将/script/目录下的所有资源映射到工作目录
         暴露/script/这个文件夹下的所有资源
     -->
+    <mvc:resources mapping="/script/**" location="/script/"/>
     <!--<mvc:resources mapping="/script/**" location="/script/"/>
     <mvc:resources mapping="/images/**" location="/images/"/>-->
 
+
+    <!--
+        将.jsp文件映射到/WEB-INF/views/目录下
+    -->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/"/>
         <property name="suffix" value=".jsp"/>
